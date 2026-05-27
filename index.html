@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samayal Panna Ready | Premium Marinated Chicken & Spices</title>
+    <meta name="theme-color" content="#ff4a22">
+    <meta name="description"
+        content="Order fresh, premium marinated chicken and hand-crafted Indian masalas online. Quick delivery, hygiene certified, ready to cook.">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/customer.css">
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+
+<body>
+    <!-- Canvas for Spice Particles Animation -->
+    <canvas id="spice-particles" class="hero-canvas"></canvas>
+
+    <!-- Header Navigation -->
+    <header class="navbar" id="main-navbar">
+        <div class="container nav-content">
+            <div class="logo" id="nav-logo">
+                <span class="logo-emoji">🍽</span>
+                <span>Samayal Panna Ready</span>
+            </div>
+
+            <div class="search-wrap">
+                <input type="text" id="food-search" placeholder="Search marinated cuts, powders...">
+                <button class="voice-search-btn" id="btn-voice-search" title="Voice Search">🎙️</button>
+            </div>
+
+            <nav class="nav-links">
+                <a href="#home" class="nav-link active" data-view="home">Home</a>
+                <a href="#chicken" class="nav-link" data-view="chicken">Chicken Cuts</a>
+                <a href="#masalas" class="nav-link" data-view="masalas">Premium Masalas</a>
+                <a href="#about" class="nav-link" data-view="about">Our Story</a>
+                <button id="btn-cart-toggle" class="nav-link" style="background:none;">
+                    🛒 Cart <span id="cart-count" class="cart-count-badge">0</span>
+                </button>
+                <button id="btn-profile" class="nav-link" style="background:none;">👤 Profile</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Parallax Hero Banner (Visible on Home View) -->
+    <section class="hero-wrapper" id="hero-banner">
+        <div class="hero-slider-bg" id="hero-slider">
+            <div class="hero-slide active"
+                style="background-image: url('https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1600&auto=format&fit=crop');">
+            </div>
+            <div class="hero-slide"
+                style="background-image: url('https://images.unsplash.com/photo-1596797038530-2c107229654b?q=80&w=1600&auto=format&fit=crop');">
+            </div>
+            <div class="hero-slide"
+                style="background-image: url('https://images.unsplash.com/photo-1606787366850-de6330128bfc?q=80&w=1600&auto=format&fit=crop');">
+            </div>
+        </div>
+        <div class="container">
+            <div class="hero-content-inner">
+                <div class="hero-tagline">100% Fresh & Authentic</div>
+                <h1 class="hero-title">
+                    <div class="typing-container">
+                        <span id="typing-text">Premium Raw Meats & Masalas</span>
+                    </div>
+                </h1>
+                <p class="hero-desc">Expertly cut marinated meats and stone-ground traditional masalas delivered fresh
+                    to your kitchen. Cooking made effortless, taste made extraordinary.</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary" id="hero-cta-chicken">Order Chicken cuts</button>
+                    <button class="btn-gold" id="hero-cta-masala">Explore Spices</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Container for Views -->
+    <main>
+        <!-- ================= HOME VIEW ================= -->
+        <section id="view-home" class="view-section">
+            <!-- Promotional Banner Carousel -->
+            <div class="container" style="padding-top: 60px;">
+                <div class="hero-content" style="display: flex; gap: 20px; overflow-x: auto; padding-bottom: 20px;">
+                    <div class="hero-banner"
+                        style="background: linear-gradient(135deg, #ef4444, #f59e0b); min-width: 320px; padding: 25px; border-radius: var(--radius-md); text-align: left; color: white;">
+                        <span
+                            style="font-size: 0.8rem; font-weight: 800; background: rgba(0,0,0,0.2); padding: 4px 8px; border-radius: 4px;">FESTIVAL
+                            OFFER</span>
+                        <h3 style="font-size: 1.6rem; margin: 12px 0 6px; font-family: var(--font-sans);">Flat 20% Off
+                        </h3>
+                        <p style="font-size: 0.9rem; opacity: 0.9; margin-bottom: 12px;">Use Coupon code
+                            <strong>SAMAYAL20</strong> on your first orders.</p>
+                    </div>
+                    <div class="hero-banner"
+                        style="background: linear-gradient(135deg, #10b981, #06b6d4); min-width: 320px; padding: 25px; border-radius: var(--radius-md); text-align: left; color: white;">
+                        <span
+                            style="font-size: 0.8rem; font-weight: 800; background: rgba(0,0,0,0.2); padding: 4px 8px; border-radius: 4px;">HYGIENE
+                            PROMISE</span>
+                        <h3 style="font-size: 1.6rem; margin: 12px 0 6px; font-family: var(--font-sans);">Stone Ground
+                            Pure</h3>
+                        <p style="font-size: 0.9rem; opacity: 0.9; margin-bottom: 12px;">100% natural, preservative-free
+                            signature spice powders.</p>
+                    </div>
+                    <div class="hero-banner"
+                        style="background: linear-gradient(135deg, #d4af37, #b45309); min-width: 320px; padding: 25px; border-radius: var(--radius-md); text-align: left; color: white;">
+                        <span
+                            style="font-size: 0.8rem; font-weight: 800; background: rgba(0,0,0,0.2); padding: 4px 8px; border-radius: 4px;">EXPRESS</span>
+                        <h3 style="font-size: 1.6rem; margin: 12px 0 6px; font-family: var(--font-sans);">Under 45 Mins
+                        </h3>
+                        <p style="font-size: 0.9rem; opacity: 0.9; margin-bottom: 12px;">Superfast delivery ensures
+                            fresh products reach your cooking pot.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Products (Chicken & Spices Preview) -->
+            <div class="container shop-section scroll-animate">
+                <div class="section-header">
+                    <div>
+                        <h2 class="section-title">Chef's <span>Special Choices</span></h2>
+                        <p class="section-subtitle">Voted by our community as the most delicious cuts & blends</p>
+                    </div>
+                    <button class="btn-secondary" id="btn-see-all-featured">See All Items ➡️</button>
+                </div>
+                <div class="food-grid" id="featured-food-grid">
+                    <!-- Javascript will inject 3-4 top items here -->
+                </div>
+            </div>
+
+            <!-- Brand Statistics Counters -->
+            <section class="stats-section scroll-animate">
+                <div class="container stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="25000">0</div>
+                        <div class="stat-label">Orders Handled</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="98">0</div>
+                        <div class="stat-label">% Customer Retails</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="15">0</div>
+                        <div class="stat-label">Farm Sourced Partners</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="45">0</div>
+                        <div class="stat-label">Mins Avg Delivery</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials Review Slider -->
+            <section class="testimonials-section scroll-animate">
+                <div class="container">
+                    <h2 class="section-title text-center" style="margin-bottom: 40px;">Loved by <span>Home Chefs</span>
+                    </h2>
+                    <div class="testimonial-carousel">
+                        <div class="testimonial-track" id="testimonial-track">
+                            <div class="testimonial-slide">
+                                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                                <p class="testimonial-text">"Their Chicken Kabab Masala has a rich traditional color and
+                                    authentic aroma. Reminds me of my grandmother's stone-ground masalas. Highly
+                                    recommended!"</p>
+                                <div class="testimonial-author">Ramesh Kumar • Pollachi</div>
+                            </div>
+                            <div class="testimonial-slide">
+                                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                                <p class="testimonial-text">"I ordered non-veg cuts and masala mixes. Delivered in 30
+                                    minutes in temperature-controlled packets. Exceptional service!"</p>
+                                <div class="testimonial-author">Priyanka Sen • Erode</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- ================= CHICKEN PRODUCTS VIEW ================= -->
+        <section id="view-chicken" class="view-section hidden">
+            <div class="container shop-section">
+                <div class="section-header">
+                    <div>
+                        <h2 class="section-title">Fresh <span>Marinated Chicken</span></h2>
+                        <p class="section-subtitle">Cleaned, prepped, and marinated with traditional spices. Straight to
+                            the pan!</p>
+                    </div>
+                </div>
+
+                <!-- Subcategory Filter Pills -->
+                <div class="category-filters-wrapper">
+                    <div class="category-filters" id="chicken-filters">
+                        <!-- Javascript will inject categories here -->
+                    </div>
+                </div>
+
+                <div class="food-grid" id="chicken-grid">
+                    <!-- Products dynamically rendered -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= MASALA PRODUCTS VIEW ================= -->
+        <section id="view-masalas" class="view-section hidden">
+            <div class="container shop-section">
+                <div class="section-header">
+                    <div>
+                        <h2 class="section-title">Premium <span>Stone-Ground Masalas</span></h2>
+                        <p class="section-subtitle">100% natural spices containing zero chemicals, synthetic colors, or
+                            preservatives.</p>
+                    </div>
+                </div>
+
+                <!-- Subcategory Filter Pills -->
+                <div class="category-filters-wrapper">
+                    <div class="category-filters" id="masala-filters">
+                        <!-- Javascript will inject categories here -->
+                    </div>
+                </div>
+
+                <div class="food-grid" id="masala-grid">
+                    <!-- Products dynamically rendered -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= ABOUT US VIEW ================= -->
+        <section id="view-about" class="view-section hidden">
+            <div class="container" style="padding: 100px 24px 60px;">
+                <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                    <h2 class="section-title" style="font-size: 3rem; margin-bottom: 20px;">The Legacy of <span>Samayal
+                            Panna Ready</span></h2>
+                    <p style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.8;">We believe that great
+                        cooking starts with the highest quality ingredients. Founded in South India, our brand bridges
+                        the gap between busy modern lifestyles and traditional slow-cooked flavors. We hand-select
+                        premium poultry and grind our spices stone-cold to keep their essential oils intact.</p>
+                </div>
+
+                <!-- Interactive Brand Timeline -->
+                <div class="timeline scroll-animate">
+                    <div class="timeline-item timeline-left">
+                        <div class="timeline-content">
+                            <div class="timeline-date">2021</div>
+                            <h4>Started in Coimbatore</h4>
+                            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 6px;">Launched with just
+                                4 marinated chicken cuts, delivering locally to nearby communities with a hygiene first
+                                promise.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item timeline-right">
+                        <div class="timeline-content">
+                            <div class="timeline-date">2022</div>
+                            <h4>In-House Spice Factory</h4>
+                            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 6px;">Set up traditional
+                                slow stone-grinders to produce aromatic masala powders without adding artificial
+                                coloring or MSG.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item timeline-left">
+                        <div class="timeline-content">
+                            <div class="timeline-date">2023</div>
+                            <h4>Cold Chain Expansion</h4>
+                            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 6px;">Invested in
+                                refrigerated delivery bags and sub-zero storage systems ensuring absolute freshness of
+                                raw marinated meats.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item timeline-right">
+                        <div class="timeline-content">
+                            <div class="timeline-date">2025</div>
+                            <h4>10,000+ Happy Families</h4>
+                            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 6px;">Now the most
+                                preferred brand for ready-to-cook chicken and premium spices, loved by home cooks and
+                                foodies.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+
+    <!-- ================= AUTH MODAL OVERLAY ================= -->
+    <div class="modal-overlay" id="auth-modal">
+        <div class="modal-card">
+            <button class="modal-close" id="btn-auth-close">✕</button>
+            <div class="auth-header">
+                <span class="logo-emoji">🍽</span>
+                <h2 style="font-family: var(--font-sans); margin-top: 10px;">Samayal Panna Ready</h2>
+                <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 5px;">Unlock delicious meals and
+                    quick checkout</p>
+            </div>
+
+            <div class="auth-tabs">
+                <button class="auth-tab active" id="tab-login">Login</button>
+                <button class="auth-tab" id="tab-signup">Create Account</button>
+            </div>
+
+            <!-- Login Form -->
+            <form id="login-form">
+                <div class="form-group">
+                    <label>Email, Name, or Phone</label>
+                    <input type="text" id="login-email" placeholder="Enter credentials..." required>
+                </div>
+                <div class="form-group">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <label style="margin-bottom:0;">Password</label>
+                        <button type="button" id="forgot-password" class="text-link"
+                            style="font-size:0.8rem;">Forgot?</button>
+                    </div>
+                    <input type="password" id="login-password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn-primary w-full" style="border-radius: 8px;">Login 🔓</button>
+            </form>
+
+            <!-- Signup Form -->
+            <form id="signup-form" class="hidden">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="signup-name" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="signup-email" placeholder="john@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Mobile Number</label>
+                    <input type="tel" id="signup-mobile" placeholder="10-digit mobile" pattern="[0-9]{10}" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="signup-password" placeholder="Minimum 6 characters" minlength="6"
+                        required>
+                </div>
+                <div class="form-group hidden">
+                    <select id="signup-role">
+                        <option value="customer" selected>Customer</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary w-full" style="border-radius: 8px;">Create Account ✨</button>
+            </form>
+
+            <div id="auth-error" class="error-text"></div>
+        </div>
+    </div>
+
+    <!-- ================= VOICE SEARCH MODAL ================= -->
+    <div class="modal-overlay" id="voice-modal" style="z-index: 3000;">
+        <div class="modal-card text-center" style="width: 320px; padding: 30px;">
+            <div style="font-size: 3rem; animation: voicePulse 1.5s infinite; color: var(--primary);">🎙️</div>
+            <h3 style="font-family: var(--font-sans); margin-top: 15px;">Listening...</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 5px;">Say a dish or spice name (e.g.
+                "Chicken Kabab")</p>
+            <button class="btn-secondary mt-20" id="btn-voice-cancel" style="padding: 10px 20px;">Cancel</button>
+        </div>
+    </div>
+
+    <!-- ================= AI CHATBOT INTERFACE ================= -->
+    <button class="chatbot-toggle" id="chatbot-btn" title="Ask Samayal AI">
+        💬
+    </button>
+    <div class="chatbot-panel glass-panel" id="chatbot-panel">
+        <div class="chatbot-header">
+            <div class="chatbot-title">
+                <span>🤖</span> Samayal Chef AI
+            </div>
+            <button style="background:none; color:var(--text-light); font-size:1rem;" id="chatbot-close">✕</button>
+        </div>
+        <div class="chatbot-body" id="chatbot-body">
+            <div class="chat-msg bot">
+                Hello! I am your <strong>Samayal Chef AI</strong>. How can I help you today?
+                <div style="margin-top: 10px; display: flex; flex-direction: column; gap: 6px;">
+                    <button class="btn-secondary" style="font-size:0.75rem; padding: 6px 12px; text-align: left;"
+                        onclick="sendQuickChat('What are your hours?')">⏰ What are your hours?</button>
+                    <button class="btn-secondary" style="font-size:0.75rem; padding: 6px 12px; text-align: left;"
+                        onclick="sendQuickChat('How are products packed?')">📦 How are products packed?</button>
+                    <button class="btn-secondary" style="font-size:0.75rem; padding: 6px 12px; text-align: left;"
+                        onclick="sendQuickChat('Do you have discounts?')">🏷️ Do you have discounts?</button>
+                </div>
+            </div>
+        </div>
+        <div class="chatbot-footer">
+            <input type="text" id="chatbot-input" placeholder="Type your question...">
+            <button id="chatbot-send">➔</button>
+        </div>
+    </div>
+
+    <!-- ================= MOBILE NAVIGATION BAR ================= -->
+    <nav class="mobile-nav">
+        <div class="mobile-nav-content">
+            <a href="#home" class="mob-nav-item active" data-view="home">
+                <span class="mob-nav-icon">🏠</span>
+                <span>Home</span>
+            </a>
+            <a href="#chicken" class="mob-nav-item" data-view="chicken">
+                <span class="mob-nav-icon">🍗</span>
+                <span>Chicken</span>
+            </a>
+            <a href="#masalas" class="mob-nav-item" data-view="masalas">
+                <span class="mob-nav-icon">🌶️</span>
+                <span>Masalas</span>
+            </a>
+            <button id="btn-cart-toggle-mob" class="mob-nav-item" style="background:none;">
+                <span class="mob-nav-icon">🛒</span>
+                <span>Cart (<span id="cart-count-mob">0</span>)</span>
+            </button>
+            <button id="btn-profile-mob" class="mob-nav-item" style="background:none;">
+                <span class="mob-nav-icon">👤</span>
+                <span>Profile</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Global Footer -->
+    <footer class="app-footer">
+    </footer>
+
+    <!-- Firebase SDK & Controller imports -->
+    <script type="module" src="js/theme.js"></script>
+    <script type="module" src="js/customer.js"></script>
+    <script type="module" src="js/auth.js"></script>
+
+    <!-- WhatsApp Floating Action -->
+    <a href="https://wa.me/918754743213" class="whatsapp-float" target="_blank" title="Contact us on WhatsApp">
+        <svg viewBox="0 0 32 32">
+            <path
+                d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.733 5.476 2.015 7.788l-2.015 7.212 7.379-1.935c2.316 1.22 4.954 1.935 7.621 1.935 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.333c-2.454 0-4.757-0.655-6.745-1.796l-0.484-0.278-4.385 1.15 1.168-4.185-0.305-0.485c-1.312-2.072-2.072-4.524-2.072-7.14 0-7.389 6.011-13.4 13.4-13.4s13.4 6.011 13.4 13.4-6.011 13.4-13.4 13.4zM22.502 19.333c-0.356-0.178-2.105-1.039-2.431-1.157-0.326-0.118-0.564-0.178-0.801 0.178s-0.919 1.157-1.127 1.395c-0.207 0.237-0.415 0.267-0.771 0.089-0.356-0.178-1.503-0.554-2.862-1.768-1.057-0.943-1.771-2.107-1.978-2.463-0.207-0.356-0.022-0.548 0.156-0.725 0.161-0.159 0.356-0.415 0.534-0.623 0.178-0.207 0.237-0.356 0.356-0.594 0.118-0.237 0.059-0.445-0.030-0.623s-0.801-1.929-1.101-2.646c-0.291-0.697-0.587-0.602-0.801-0.613-0.207-0.011-0.445-0.013-0.683-0.013s-0.623 0.089-0.919 0.415c-0.296 0.326-1.127 1.101-1.127 2.686s1.157 3.116 1.315 3.324c0.158 0.207 2.277 3.477 5.516 4.877 0.771 0.332 1.372 0.531 1.841 0.679 0.774 0.245 1.479 0.211 2.036 0.128 0.621-0.093 2.105-0.861 2.402-1.693 0.297-0.831 0.297-1.544 0.207-1.693 0-0.089-0.326-0.237-0.683-0.414z" />
+        </svg>
+    </a>
+
+    <!-- Service Worker registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(reg => console.log('SW Registered!', reg))
+                    .catch(err => console.log('SW Failed', err));
+            });
+        }
+    </script>
+</body>
+
+</html>
